@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   rotback.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfebvay <mfebvay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/03 05:00:13 by mfebvay           #+#    #+#             */
-/*   Updated: 2015/02/03 22:01:09 by mfebvay          ###   ########.fr       */
+/*   Created: 2015/02/03 20:46:10 by mfebvay           #+#    #+#             */
+/*   Updated: 2015/02/03 21:02:39 by mfebvay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int		main(int ac, char **av)
+void	rotback_a(t_list **list, t_list **moves)
 {
-	t_list	*list;
-	t_list	*moves;
+	ft_lstrotback(list);
+	add_move("rra", moves);
+}
 
-	moves = NULL;
-	if (ac < 2)
-	{
-		ft_putendl_fd("Error", 2);
-		exit(-1);
-	}
-	if (!make_list(&list, ac, av) || checkdoubles(list))
-	{
-		ft_lstdel(&list, ft_freecontent);
-		ft_putendl_fd("Error", 2);
-		exit(-1);
-	}
-	solve(&list, &moves);
-	put_moves(moves);
-	ft_lstdel(&moves, ft_freecontent);
-	ft_lstdel(&list, ft_freecontent);
-	return (0);
+void	rotback_b(t_list **list, t_list **moves)
+{
+	ft_lstrotback(list);
+	add_move("rrb", moves);
+}
+
+void	rotback_both(t_list **l_a, t_list **l_b, t_list **moves)
+{
+	ft_lstrotback(l_a);
+	ft_lstrotback(l_b);
+	add_move("rrrvoid    rotback_b(t_list **list, t_list **moves)", moves);
 }

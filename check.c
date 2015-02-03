@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.c                                             :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfebvay <mfebvay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/03 05:04:10 by mfebvay           #+#    #+#             */
-/*   Updated: 2015/02/03 22:09:43 by mfebvay          ###   ########.fr       */
+/*   Created: 2015/02/03 21:37:22 by mfebvay           #+#    #+#             */
+/*   Updated: 2015/02/03 21:38:12 by mfebvay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "pushswap.h"
 
-int			make_list(t_list **list, int ac, char **av)
+int		checkdoubles(t_list *list)
 {
 	t_list	*current;
-	t_list	*new;
-	int		i;
-	int		val;
 
-	i = 0;
-	*list = NULL;
-	while(++i < ac)
+	if (list && list->next)
 	{
-		if (strisint(av[i]))
-			val = ft_atoi(av[i]);
-		else
-			return (0);
-		new = ft_lstnew(&val, sizeof(int));
-		if (!(*list))
+		current = list;
+		while (current->next)
 		{
-			*list = new;
-			current = new;
-		}
-		else
-		{
-			current->next = new;
+			if (*((int*)list->content) == *((int*)current->next->content))
+				return (1);
 			current = current->next;
 		}
+		return (checkdoubles(list->next));
 	}
-	return (1);
+	return (0);
 }

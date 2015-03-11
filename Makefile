@@ -6,7 +6,7 @@
 #    By: mfebvay <mfebvay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/20 19:47:44 by mfebvay           #+#    #+#              #
-#    Updated: 2015/02/03 21:40:06 by mfebvay          ###   ########.fr        #
+#    Updated: 2015/03/06 02:55:48 by mfebvay          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -18,7 +18,7 @@ CFLAGS	= -Wall -Wextra -Werror
 INC		= -I../libft
 LIB		= -L../libft -lft
 
-SRC		= 	pushswap.c check.c list.c moves.c push.c rot.c rotback.c solve.c \
+SRC		= 	pushswap.c check.c list.c moves.c push.c rot.c rotback.c solve2.c \
 			swap.c
 
 OBJ		= $(SRC:%.c=%.o)
